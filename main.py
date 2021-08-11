@@ -11,6 +11,8 @@ def random_entry():
     if game_data.count() == 0:
         return None
     entry = rand.choice(game_data)
+    if entry["name"] == 'Instagram' and game_data.count() > 1:
+        entry = rand.choice(game_data)
     game_data.remove(entry)
     return [entry["follower_count"], f'{entry["name"]}, {entry["description"]} from {entry["country"]}']
 
